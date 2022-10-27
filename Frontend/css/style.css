@@ -1,0 +1,49 @@
+body {
+  background-color: #1d1f21 !important;
+  color: aliceblue !important;
+  font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace !important;
+}
+
+.c_p {
+  color: #00cb87;
+  font-weight: 300;
+  font-size: 100px !important;
+}
+
+.c_navbar {
+  background-color: #1d1f21 !important;
+}
+
+.c_container {
+  margin: auto;
+	width: 45%;
+}
+.c_navbar-primary{
+    color: #00cb87 !important;
+}
+.c_span:hover{
+  text-decoration: underline;
+}
+
+.c_middle:nth-child(1){
+  padding-right: 15px;
+}
+
+.c_middle:nth-child(2){
+  border-left: 2px dotted #00cb87 ;
+  border-right: 2px dotted #00cb87 ;
+  height: 30px !important;
+  
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+
+.c_middle:nth-child(3){
+  padding-left: 15px;
+}
+
+.c_icon:hover{
+  color: #00cb87 !important;
+  font-size: larger !important;
+}
