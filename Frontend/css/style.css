@@ -41,9 +41,38 @@ body {
 
 .c_middle:nth-child(3){
   padding-left: 15px;
+  border-right: 2px dotted #00cb87 ;
+  padding-right: 15px;
+}
+
+
+.c_middle:nth-child(4){
+  padding-left: 15px;
 }
 
 .c_icon:hover{
   color: #00cb87 !important;
   font-size: larger !important;
+}
+
+
+.c_icon:nth-child(1){
+
+}
+
+.footer {
+  margin-top: 100px;
+  position:fixed;
+  bottom:10px;
+  font-size: 13px ;
+  width: 40%;
+}
+
+.text-grey{
+  color: grey;
+}
+
+.text-grey:hover{
+  color: #00cb87;
+  text-decoration: none !important;
 }
