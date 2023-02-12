@@ -39,7 +39,7 @@ function Navbar({ setNavLinks, setBar, bar, navLinks }) {
           />
           </Link>
           <div className="nav-link-wrapper">
-            <Link className="title-wrap" to="/"><h2 className={darkMode ? "dark" : ""}>Sarkar</h2></Link>
+            <Link className="title-wrap" to="/"><h2 className={darkMode ? "dark" : ""}>sh1mu7</h2></Link>
             <ul className={`${toggleBarContent} ${darkMode ? " dark-ul" : ""}`}>
               <NavItems setNavLinks={setNavLinks} setBar={setBar} />
             </ul>

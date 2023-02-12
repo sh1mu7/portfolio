@@ -8,7 +8,7 @@ function Footer({ setNavLinks, setBar }) {
     <div className="footer_main">
       <div className="copy-right">
         <p className={darkMode ? "dark" : ""}>
-          Copyright &#169; 2022, Nittanando Sarkar.
+          Copyright &#169; 2022, Mahmudul Hasan.
         </p>
       </div>
       <div className="footer-nav">

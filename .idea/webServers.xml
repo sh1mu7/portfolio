@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b8a18d18-a723-4fc7-9321-994f4b9e682c" name="Contabo">
+        <fileTransfer rootFolder="/home/sh1mu7/projects" accessType="SFTP" host="109.123.252.197" port="22" sshConfigId="ecb3021e-3b73-4cfb-bea4-09574b895bb1" sshConfig="sh1mu7@109.123.252.197:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

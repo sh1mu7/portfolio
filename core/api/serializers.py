@@ -2,6 +2,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import serializers
 from django.utils.translation import gettext_lazy as _
 
+from core.models import UserWebsite
 from core.utils import auth_utils
 
 
@@ -17,3 +18,10 @@ class LoginSerializer(serializers.Serializer):
             return attrs
         except ObjectDoesNotExist:
             raise serializers.ValidationError({'email': [_(f"User with email {email} does not exist")]})
+
+
+class WebsiteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserWebsite
+        fields = '__all__'
+
