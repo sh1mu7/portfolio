@@ -12,6 +12,11 @@ class BaseModel(models.Model):
         abstract = True
 
 
+class Technology(BaseModel):
+    name = models.CharField(max_length=30)
+    version = models.CharField(max_length=10, null=True)
+
+
 class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -69,22 +74,25 @@ class UserWebsite(BaseModel):
     def __str__(self):
         return self.website_name
 
+
 class Project(models.Model):
-    user = models.ManyToManyField(User, related_name='project')
+    user = models.ForeignKey(User, related_name='project',on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
-    technologies = models.CharField(max_length=200)
+    technologies = models.ForeignKey(Technology, on_delete=models.CASCADE, related_name='technologies', null=True)
     image = models.ImageField(upload_to='project_images', blank=True, null=True)
     live_url = models.URLField(blank=True, null=True)
-    source_link=models.URLField(blank=True, null=True)
+    source_link = models.URLField(blank=True, null=True)
     is_completed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
+
+
 class EducationInformation(BaseModel):
-    user = models.ManyToManyField(User, related_name='education')
+    user = models.ForeignKey(User, related_name='education', on_delete=models.CASCADE)
     certification_name = models.CharField(max_length=100)
     field_of_study = models.CharField(max_length=100)
     school = models.CharField(max_length=200)
@@ -96,14 +104,10 @@ class EducationInformation(BaseModel):
         return self.certification_name
 
 
-class SkillAttribute(BaseModel):
-    name = models.CharField(max_length=30)
-
-
-class Skills(BaseModel):
-    user = models.ManyToManyField(User, related_name='skills')
+class Skill(BaseModel):
+    user = models.ForeignKey(User, related_name='skills',on_delete=models.CASCADE)
     skill_name = models.CharField(max_length=100)
-    skill_attribute = models.ForeignKey(SkillAttribute, on_delete=models.CASCADE)
+    technology = models.ForeignKey(Technology, on_delete=models.CASCADE, related_name='technology')
     level = models.CharField(max_length=20, null=True, help_text='on scale of 10')
     years_of_experience = models.PositiveSmallIntegerField()
 
@@ -125,6 +129,7 @@ class Experience(models.Model):
 
 
 class Resume(BaseModel):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='resume')
     file = models.FileField(upload_to='Resume')
 
     def __str__(self):
