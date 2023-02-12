@@ -1,10 +1,12 @@
+
+
 from .base import *
 
 DEBUG = config('DEBUG', cast=bool, default=False)
 
 SECRET_KEY = config('SECRET_KEY')
-ALLOWED_HOSTS = config('ALLOWED_HOSTS')
 
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/sh1mu7/projects/portfolio/static'
 
