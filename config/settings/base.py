@@ -1,5 +1,6 @@
 import os.path
 from pathlib import Path
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -14,7 +15,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_spectacular',
     'corsheaders',
-    'blog.apps.BlogConfig',
     'core.apps.CoreConfig',
 ]
 
@@ -59,9 +59,10 @@ REST_FRAMEWORK = {
 }
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Blog API',
-    'DESCRIPTION': 'Blog and Dashboard ',
-    "CONTACT": {
-        'name': 'Mahmudul Hasan'
+    'DESCRIPTION': 'Blog API prepare for react portfolio',
+    'CONTACT': {
+        'name': 'Mahmudul Hasan',
+        'email': 'hasaanshimul@gmail.com'
     },
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
@@ -91,11 +92,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core.User'
-
-
-
-

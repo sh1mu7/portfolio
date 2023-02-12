@@ -35,7 +35,7 @@ function Home() {
                         <a href={data[0].github_link} target="_blank" rel="noreferrer noopener">
                             <i className={"s-icon fa-brands fa-github-alt " + toggleDark()}></i>
                         </a>
-                        data[0].github_link
+
 
                         <a href={data[0].linkedin_link} target="_blank" rel="noreferrer noopener">
                             <i

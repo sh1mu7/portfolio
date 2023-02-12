@@ -70,7 +70,7 @@ class UserWebsite(BaseModel):
         return self.website_name
 
 class Project(models.Model):
-    user = models.ManyToManyField(User, related_name='user')
+    user = models.ManyToManyField(User, related_name='project')
     title = models.CharField(max_length=100)
     description = models.TextField()
     start_date = models.DateField()
@@ -84,7 +84,7 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 class EducationInformation(BaseModel):
-    user = models.ManyToManyField(User, related_name='user')
+    user = models.ManyToManyField(User, related_name='education')
     certification_name = models.CharField(max_length=100)
     field_of_study = models.CharField(max_length=100)
     school = models.CharField(max_length=200)

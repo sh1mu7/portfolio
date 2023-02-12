@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 .main_app-wrapper {
-  background-color: rgb(40, 35, 35);
+  background-color: rgb(13, 17, 23);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     Liberation Mono, Courier New, monospace;
   transition: all 0.3s ease;
