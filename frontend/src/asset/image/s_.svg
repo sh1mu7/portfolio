@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 111.482 16 8" width="16" height="8" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="drop-shadow-filter-0" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+      <feOffset dx="5" dy="2"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="spread-ctrl" type="linear" slope="1.52"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,203,135,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M 1961.089 -637.84 L 1962.919 -645.177 L 1999.606 -645.177 L 2001.436 -652.515 L 1972.086 -652.515 L 1973.915 -659.852 L 1966.578 -659.852 L 1968.407 -667.19 L 1975.745 -667.19 L 1977.574 -674.527 L 2014.262 -674.527 L 2012.432 -667.19 L 1983.082 -667.19 L 1981.253 -659.852 L 2010.603 -659.852 L 2008.773 -652.515 L 2016.111 -652.515 L 2014.281 -645.177 L 2006.944 -645.177 L 2005.114 -637.84 Z" transform="matrix(0.041104, 0, 0, 0.086527, -79.982513, 172.209076)" style="fill: rgba(0, 0, 0, 0); stroke: rgb(0, 203, 135); stroke-dasharray: 1px; stroke-miterlimit: 3; stroke-width: 1.58852px; white-space: pre; text-decoration: underline solid rgba(0, 0, 0, 0.8); filter: url(#drop-shadow-filter-0);"/>
+  <path d="M 2019.45 -637.84 L 2032.256 -689.202 L 2046.931 -689.202 L 2043.272 -674.527 L 2072.622 -674.527 L 2070.793 -667.19 L 2078.13 -667.19 L 2070.812 -637.84 L 2056.137 -637.84 L 2063.455 -667.19 L 2041.443 -667.19 L 2034.125 -637.84 Z" transform="matrix(0.041104, 0, 0, 0.086527, -79.982513, 172.209076)" style="fill: rgba(0, 0, 0, 0); stroke: rgb(0, 203, 135); stroke-dasharray: 1px; stroke-miterlimit: 3; stroke-width: 1.58852px; white-space: pre; text-decoration: underline solid rgba(0, 0, 0, 0.8); filter: url(#drop-shadow-filter-0);"/>
+  <path d="M 2085.378 -637.84 L 2087.208 -645.177 L 2101.883 -645.177 L 2109.201 -674.527 L 2101.863 -674.527 L 2103.693 -681.865 L 2111.03 -681.865 L 2112.859 -689.202 L 2127.534 -689.202 L 2116.558 -645.177 L 2131.233 -645.177 L 2129.403 -637.84 Z" transform="matrix(0.041104, 0, 0, 0.086527, -79.982513, 172.209076)" style="fill: rgba(0, 0, 0, 0); stroke: rgb(0, 203, 135); stroke-dasharray: 1px; stroke-miterlimit: 3; stroke-width: 1.58852px; white-space: pre; text-decoration: underline solid rgba(0, 0, 0, 0.8); filter: url(#drop-shadow-filter-0);"/>
+  <path d="M 2136.632 -637.84 L 2145.779 -674.527 L 2189.804 -674.527 L 2187.974 -667.19 L 2195.312 -667.19 L 2187.994 -637.84 L 2173.319 -637.84 L 2180.637 -667.19 L 2173.299 -667.19 L 2165.982 -637.84 L 2151.307 -637.84 L 2158.624 -667.19 L 2151.287 -667.19 L 2143.969 -637.84 Z" transform="matrix(0.041104, 0, 0, 0.086527, -79.982513, 172.209076)" style="fill: rgba(0, 0, 0, 0); stroke: rgb(0, 203, 135); stroke-dasharray: 1px; stroke-miterlimit: 3; stroke-width: 1.58852px; white-space: pre; text-decoration: underline solid rgba(0, 0, 0, 0.8); filter: url(#drop-shadow-filter-0);"/>
+  <path d="M 2202.56 -637.84 L 2204.39 -645.177 L 2197.052 -645.177 L 2204.37 -674.527 L 2219.045 -674.527 L 2211.727 -645.177 L 2233.74 -645.177 L 2241.057 -674.527 L 2255.732 -674.527 L 2246.585 -637.84 Z" transform="matrix(0.041104, 0, 0, 0.086527, -79.982513, 172.209076)" style="fill: rgba(0, 0, 0, 0); stroke: rgb(0, 203, 135); stroke-dasharray: 1px; stroke-miterlimit: 3; stroke-width: 1.58852px; white-space: pre; text-decoration: underline solid rgba(0, 0, 0, 0.8); filter: url(#drop-shadow-filter-0);"/>
+  <path d="M 2268.489 -637.84 L 2273.977 -659.852 L 2281.315 -659.852 L 2283.144 -667.19 L 2290.482 -667.19 L 2292.311 -674.527 L 2299.649 -674.527 L 2301.478 -681.865 L 2279.465 -681.865 L 2277.636 -674.527 L 2262.961 -674.527 L 2266.62 -689.202 L 2317.982 -689.202 L 2314.324 -674.527 L 2306.986 -674.527 L 2305.157 -667.19 L 2297.819 -667.19 L 2295.99 -659.852 L 2288.652 -659.852 L 2283.164 -637.84 Z" transform="matrix(0.041104, 0, 0, 0.086527, -79.982513, 172.209076)" style="fill: rgba(0, 0, 0, 0); stroke: rgb(0, 203, 135); stroke-dasharray: 1px; stroke-miterlimit: 3; stroke-width: 1.58852px; white-space: pre; text-decoration: underline solid rgba(0, 0, 0, 0.8); filter: url(#drop-shadow-filter-0);"/>
+</svg>

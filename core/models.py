@@ -1,20 +1,19 @@
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+
 from .managers import MyUserManager
 
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    is_active=models.BooleanField(default=True)
 
     class Meta:
         abstract = True
-
-
-class Technology(BaseModel):
-    name = models.CharField(max_length=30)
-    version = models.CharField(max_length=10, null=True)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -39,15 +38,15 @@ class User(AbstractBaseUser, PermissionsMixin):
         return f"{self.first_name} {self.last_name}"
 
 
-class UserWebsite(BaseModel):
+class Website(BaseModel):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     website_url = models.CharField(max_length=100)
     website_name = models.CharField(max_length=100)
     objectives = models.TextField(null=True)
     about = models.TextField(null=True)
-    logo = models.ImageField(upload_to='website_logos/%Y/%m/%d/', null=True)
-    bg_color = models.CharField(help_text='color_code: #000000', max_length=7, null=True)
-    font_color = models.CharField(help_text='color_code: #000000', max_length=7, null=True)
+    logo = models.ImageField(upload_to='website_logos/%Y/%m/%d/', null=True, default='static/media/logo.png')
+    bg_color = models.CharField(help_text='color_code: #000000', max_length=7, null=True, default='#0d1117')
+    font_color = models.CharField(help_text='color_code: #000000', max_length=7, null=True, default='#00cb87')
     font_url = models.CharField(max_length=300, null=True)
     email = models.EmailField()
     address = models.CharField(max_length=200, null=True)
@@ -60,7 +59,7 @@ class UserWebsite(BaseModel):
 
     class Meta:
         permissions = [
-            ("view_website", "Can view website information"),
+            ("view_site_info", "Can view website information"),
         ]
 
     def save(self, *args, **kwargs):
@@ -76,43 +75,41 @@ class UserWebsite(BaseModel):
 
 
 class Project(models.Model):
-    user = models.ForeignKey(User, related_name='project',on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='project', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    start_date = models.DateField()
-    end_date = models.DateField(blank=True, null=True)
-    technologies = models.ForeignKey(Technology, on_delete=models.CASCADE, related_name='technologies', null=True)
-    image = models.ImageField(upload_to='project_images', blank=True, null=True)
+    tech_stack = models.CharField(max_length=300, null=True)
+    image = models.ImageField(upload_to='projects', blank=True, null=True, default='static/media/default.png')
     live_url = models.URLField(blank=True, null=True)
     source_link = models.URLField(blank=True, null=True)
+    start_date = models.DateField()
+    end_date = models.DateField(blank=True, null=True)
     is_completed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
 
 
-class EducationInformation(BaseModel):
-    user = models.ForeignKey(User, related_name='education', on_delete=models.CASCADE)
-    certification_name = models.CharField(max_length=100)
-    field_of_study = models.CharField(max_length=100)
-    school = models.CharField(max_length=200)
-    start_date = models.DateField()
-    end_date = models.DateField()
-    description = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.certification_name
-
-
 class Skill(BaseModel):
-    user = models.ForeignKey(User, related_name='skills',on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='skills', on_delete=models.CASCADE)
     skill_name = models.CharField(max_length=100)
-    technology = models.ForeignKey(Technology, on_delete=models.CASCADE, related_name='technology')
-    level = models.CharField(max_length=20, null=True, help_text='on scale of 10')
-    years_of_experience = models.PositiveSmallIntegerField()
+    technology = models.CharField(max_length=300)
 
     def __str__(self):
         return self.skill_name
+
+
+class Education(BaseModel):
+    user = models.ForeignKey(User, related_name='education', on_delete=models.CASCADE)
+    degree_name = models.CharField(max_length=100)
+    field_of_study = models.CharField(max_length=100)
+    institute = models.CharField(max_length=200)
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.degree_name
 
 
 class Experience(models.Model):
@@ -130,7 +127,11 @@ class Experience(models.Model):
 
 class Resume(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='resume')
-    file = models.FileField(upload_to='Resume')
+    file = models.FileField(upload_to='resume/temp',default='static/media/default.pdf')
+    version = models.PositiveIntegerField()
 
     def __str__(self):
         return self.file.name
+
+
+

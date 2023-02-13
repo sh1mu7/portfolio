@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="30.156 148.701 441.019 156.512" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <filter id="drop-shadow-filter-0" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 5 2 1 0.13 rgba(255,255,255,1)">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+      <feOffset dx="5" dy="2"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="spread-ctrl" type="linear" slope="0.26"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(255,255,255,1)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style bx:fonts="Press Start 2P" bx:pinned="true">@import url(https://fonts.googleapis.com/css2?family=Press+Start+2P%3Aital%2Cwght%400%2C400&amp;display=swap);</style>
+  </defs>
+  <text style="fill: rgba(0, 0, 0, 0); font-family: &quot;Press Start 2P&quot;; font-size: 58.7px; font-style: italic; font-weight: 700; stroke: rgb(42, 209, 0); stroke-dasharray: 1px; stroke-miterlimit: 3; stroke-width: 1.58852px; text-decoration: underline solid rgba(0, 0, 0, 0.8);" transform="matrix(1.21642, 0, 0, 2.560676, -2353.126953, 1919.724487)"><tspan x="1959.26" y="-630.502" style="filter: url(#drop-shadow-filter-0);">sh1mu7</tspan></text>
+</svg>
