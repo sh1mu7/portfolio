@@ -14,6 +14,7 @@ router.register(prefix='resume', viewset=ResumeViewSet, basename='resume')
 
 urlpatterns = [
     path('login/', LoginAPI.as_view(), name='login'),
+    path('logout/', LogoutViewSet.as_view(), name='logout')
 ]
 
 urlpatterns += router.urls

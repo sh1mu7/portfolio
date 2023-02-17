@@ -1,8 +1,13 @@
 from drf_spectacular.utils import extend_schema
 from rest_framework import status, request
-from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticatedOrReadOnly
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.viewsets import ViewSet
+
 from . import serializers
 from .serializers import LoginSerializer
 from ..models import Website, Project, Education, Skill, Experience, Resume
@@ -34,6 +39,20 @@ class LoginAPI(APIView):
         token, created = regenerate_token(user=user)
         data = {'email': 'Login Successfully', 'token': token.key}
         return Response(data, status=status.HTTP_200_OK)
+
+
+class LogoutViewSet(APIView):
+    def post(self, request):
+        try:
+            # get the token from the request headers
+            token_key = request.headers.get('Authorization').split()[1]
+            # get the token object associated with this key
+            token = Token.objects.get(key=token_key)
+            # delete the token object to logout the user
+            token.delete()
+            return Response({'detail': 'Logout successful'}, status=status.HTTP_200_OK)
+        except:
+            return Response({'detail': 'Invalid token or session expired'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class WebsiteViewSet(viewsets.ModelViewSet):
@@ -118,7 +137,6 @@ class ExperienceViewSet(viewsets.ModelViewSet):
 
 class ResumeViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ResumeSerializer
-    lookup_field = 'id'
 
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
