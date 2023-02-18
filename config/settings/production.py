@@ -4,7 +4,7 @@ DEBUG = config('DEBUG', cast=bool, default=True)
 
 SECRET_KEY = config('SECRET_KEY')
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS',cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 STATIC_URL = '/static/'
 STATIC_ROOT = config('STATIC_ROOT')
 
@@ -22,5 +22,18 @@ DATABASES = {
         'ATOMIC_REQUESTS': True,
     }
 }
+
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 60 * 15
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = config("CORS_ORIGIN_WHITELIST", default="http://localhost:3000", cast=Csv())

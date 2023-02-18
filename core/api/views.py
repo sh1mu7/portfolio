@@ -42,6 +42,7 @@ class LoginAPI(APIView):
 
 
 class LogoutViewSet(APIView):
+    serializer_class = None
     def post(self, request):
         try:
             # get the token from the request headers
@@ -137,7 +138,6 @@ class ExperienceViewSet(viewsets.ModelViewSet):
 
 class ResumeViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ResumeSerializer
-
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
             permission_classes = [IsAuthenticatedOrReadOnly]
