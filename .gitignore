@@ -12,7 +12,7 @@ db.sqlite3-journal
 
 # C extensions
 *.so
-
+media/*
 # Distribution / packaging
 .Python
 build/
